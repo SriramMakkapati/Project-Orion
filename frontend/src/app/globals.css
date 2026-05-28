@@ -1,0 +1,250 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========== THEME VARIABLES ========== */
+:root,
+[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #212121;
+  --bg-surface: #2a2a2a;
+  --bg-surface-hover: #333333;
+  --bg-elevated: #333333;
+  --text-primary: #e8eaed;
+  --text-secondary: #bdc1c6;
+  --text-muted: #8e9297;
+  --border-primary: #3c3c3c;
+  --border-secondary: #2a2a2a;
+  --accent: #8ab4f8;
+  --accent-hover: #aecbfa;
+  --accent-muted: rgba(138, 180, 248, 0.1);
+  --gradient-start: #8ab4f8;
+  --gradient-end: #c58af9;
+  --sidebar-bg: #141414;
+  --input-bg: #2a2a2a;
+  --message-user: #3b5998;
+  --message-ai-bg: transparent;
+  --message-ai-border: transparent;
+  --shadow-glow: 0 0 15px rgba(138, 180, 248, 0.08);
+  --shadow-glow-lg: 0 0 30px rgba(138, 180, 248, 0.12);
+}
+
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-surface: #f1f3f4;
+  --bg-surface-hover: #e8eaed;
+  --bg-elevated: #ffffff;
+  --text-primary: #1f1f1f;
+  --text-secondary: #5f6368;
+  --text-muted: #9aa0a6;
+  --border-primary: #e0e0e0;
+  --border-secondary: #f1f3f4;
+  --accent: #1a73e8;
+  --accent-hover: #1967d2;
+  --accent-muted: rgba(26, 115, 232, 0.08);
+  --gradient-start: #1a73e8;
+  --gradient-end: #8430ce;
+  --sidebar-bg: #f8f9fa;
+  --input-bg: #f1f3f4;
+  --message-user: #1a73e8;
+  --message-ai-bg: transparent;
+  --message-ai-border: transparent;
+  --shadow-glow: 0 0 15px rgba(26, 115, 232, 0.06);
+  --shadow-glow-lg: 0 0 30px rgba(26, 115, 232, 0.1);
+}
+
+[data-theme="midnight"] {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-surface: #1c2128;
+  --bg-surface-hover: #272d36;
+  --bg-elevated: #21262d;
+  --text-primary: #f0f6fc;
+  --text-secondary: #8b949e;
+  --text-muted: #6e7681;
+  --border-primary: #30363d;
+  --border-secondary: #21262d;
+  --accent: #58a6ff;
+  --accent-hover: #79c0ff;
+  --accent-muted: rgba(88, 166, 255, 0.1);
+  --gradient-start: #58a6ff;
+  --gradient-end: #bc8cff;
+  --sidebar-bg: #010409;
+  --input-bg: #1c2128;
+  --message-user: #1f6feb;
+  --message-ai-bg: transparent;
+  --message-ai-border: transparent;
+  --shadow-glow: 0 0 15px rgba(88, 166, 255, 0.1);
+  --shadow-glow-lg: 0 0 30px rgba(88, 166, 255, 0.15);
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  @apply min-h-screen font-sans transition-colors duration-300;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(99, 102, 241, 0); }
+}
+
+@keyframes typing {
+  0% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 0.3; transform: scale(0.8); }
+}
+
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.4s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.4s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+/* ========== UTILITY CLASSES ========== */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Theme transition for all elements */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
