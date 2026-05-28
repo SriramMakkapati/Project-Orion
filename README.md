@@ -197,7 +197,7 @@ Project-Orion/
 │   │   └── lib/                 # API client
 │   ├── package.json
 │   └── tailwind.config.js
-├── ARCHITECTURE.md              # Detailed architecture & interview Q&A
+├── ARCHITECTURE.md              # Detailed architecture & interview Q&A (local only)
 └── README.md
 ```
 
@@ -256,7 +256,7 @@ Orion supports three carefully crafted themes with zero-flash switching:
 
 ## 📖 Documentation
 
-For detailed architecture diagrams, data flow explanations, and 22 interview-ready Q&A covering RAG, MCP, GenAI, Frontend, Agentic AI, and System Design — see [ARCHITECTURE.md](ARCHITECTURE.md).
+For detailed architecture diagrams, data flow explanations, and interview-ready Q&A — see `ARCHITECTURE.md` (kept locally, not in repo).
 
 ---
 
